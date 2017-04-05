@@ -59,9 +59,9 @@ public class AnagrammiController {
     	
     	for(String s : ris)
     		if(model.controllaAnagramma(s))
-    			txtCorretti.appendText(s + " ");
+    			txtCorretti.appendText(s + "\n");
     		else
-    			txtErrati.appendText(s + " ");
+    			txtErrati.appendText(s + "\n");
 
     }
 
