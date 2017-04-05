@@ -9,7 +9,7 @@ public class AnagrammiDAO {
 	
 	public boolean controllaAnagramma(String anagramma) {
 
-		final String sql = "SELECT nome FROM parole WHERE nome=?";
+		final String sql = "SELECT nome FROM parola WHERE nome=?";
 
 		try {
 			Connection conn = ConnectDB.getConnection();

@@ -43,6 +43,9 @@ public class AnagrammiController {
     @FXML
     void doCalcola(ActionEvent event) {
     	
+    	txtCorretti.clear();
+    	txtErrati.clear();
+    	
     	String parola = txtParola.getText();
     	
     	if(!parola.matches("[a-zA-Z]*")){
@@ -56,9 +59,9 @@ public class AnagrammiController {
     	
     	for(String s : ris)
     		if(model.controllaAnagramma(s))
-    			txtCorretti.appendText(s);
+    			txtCorretti.appendText(s + " ");
     		else
-    			txtErrati.appendText(s);
+    			txtErrati.appendText(s + " ");
 
     }
 
