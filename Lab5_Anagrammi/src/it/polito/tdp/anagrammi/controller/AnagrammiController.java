@@ -41,11 +41,23 @@ public class AnagrammiController {
 
     @FXML
     void doCalcola(ActionEvent event) {
+    	
+    	String parola = txtParola.getText();
+    	
+    	if(!parola.matches("[a-zA-Z]*")){
+    		txtErrati.setText("Inseriti caratteri non validi: inserisci una sola parola di caratteri alfabetici");
+    		return;
+    	}
+    	
+    	txtCorretti.setText(model.calcolaAnagrammi(parola).toString());
 
     }
 
     @FXML
     void doReset(ActionEvent event) {
+    	txtParola.clear();
+    	txtCorretti.clear();
+    	txtErrati.clear();
 
     }
     
