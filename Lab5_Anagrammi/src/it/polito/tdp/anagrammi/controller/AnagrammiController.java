@@ -6,6 +6,7 @@ package it.polito.tdp.anagrammi.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import it.polito.tdp.anagrammi.model.Model;
 import javafx.event.ActionEvent;
@@ -49,7 +50,15 @@ public class AnagrammiController {
     		return;
     	}
     	
-    	txtCorretti.setText(model.calcolaAnagrammi(parola).toString());
+    	//txtCorretti.setText(model.calcolaAnagrammi(parola).toString());
+    	
+    	Set<String> ris = model.calcolaAnagrammi(parola);
+    	
+    	for(String s : ris)
+    		if(model.controllaAnagramma(s))
+    			txtCorretti.appendText(s);
+    		else
+    			txtErrati.appendText(s);
 
     }
 

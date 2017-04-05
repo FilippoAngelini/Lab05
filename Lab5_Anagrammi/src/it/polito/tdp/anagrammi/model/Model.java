@@ -6,8 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import it.polito.tdp.anagrammi.DAO.AnagrammiDAO;
+
 public class Model {
 	
+	AnagrammiDAO anagrammiDAO = new AnagrammiDAO();
 	
 	public void recursive(List<Character> caratteri, Set<String> anagrammi,String parziale,int lunghezza){
 		
@@ -45,6 +48,10 @@ public class Model {
 		Set<String> anagrammi = new HashSet<String>();
 		recursive(car,anagrammi,parziale,parola.length());
 		return anagrammi;
+	}
+	
+	public boolean controllaAnagramma(String parola){
+		return anagrammiDAO.controllaAnagramma(parola);
 	}
 
 }

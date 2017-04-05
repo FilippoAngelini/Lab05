@@ -9,29 +9,22 @@ public class AnagrammiDAO {
 	
 	public boolean controllaAnagramma(String anagramma) {
 
-		final String sql = "SELECT * FROM parole";
+		final String sql = "SELECT nome FROM parole WHERE nome=?";
 
 		try {
 			Connection conn = ConnectDB.getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
+			
+			st.setString(1, anagramma);
 
 			ResultSet rs = st.executeQuery();
-			
-			boolean trovata = false;
 
-			while (rs.next()) {
-				
-				if(anagramma.equals(rs.getString("nome"))){
-					trovata = true;
-					break;
-				}
-				
-
-			}
+			if (rs.next()) 
+				return true;
 			
 			//conn.close();
 
-			return trovata;
+			return false;
 
 		} catch (SQLException e) {
 			// e.printStackTrace();
